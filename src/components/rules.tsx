@@ -8,7 +8,7 @@ export function Rules(props: NavbarProps) {
     const [isModalVisible, setIsModalVisible] = useState(false);
 
 
-  const handleOk = async (e) => {
+  const handleOk = async (e:any) => {
         e.preventDefault();
         setIsModalVisible(false);
 

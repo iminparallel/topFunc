@@ -26,7 +26,7 @@ export function Play(props: any) {
     setUserName(user?.username)
     }, [ user?.username])
 
-  const handleCancel = async (e) => { 
+  const handleCancel = async (e:any) => { 
     e.preventDefault();
     setError([])
     setSuccess(false)
@@ -34,7 +34,7 @@ export function Play(props: any) {
 
   }  
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
         e.preventDefault();
         console.log(first,second,third)
    
