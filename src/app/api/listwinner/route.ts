@@ -60,7 +60,7 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE){
   const assetDictionary = response.data.data.ticker
   /*console.log(assetDictionary)*/
   for (let i = 0; i < assetDictionary.length; i++) {
-    assetList[assetDictionary[i].symbol] === assetDictionary[i].volValue
+    assetList[assetDictionary[i].symbol] === Number(assetDictionary[i].volValue)
   }
   const sortedList = sortDictByValue(assetList);
   const splicedList = dictionaryToArrayOfObjects(sortedList).slice(0,50);
