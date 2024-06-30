@@ -49,7 +49,7 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE!){
   await connectDB();
   const top = await Winners.find({date: justDate})
 
-/*  if(!top[0]){ */
+  if(!top[0]){ 
 
   const dateZeroTimeStamp = parseInt(Date.parse(dateZero).toString().slice(0,10));
   const dateMinusOneTimeStamp =  dateZeroTimeStamp - 24*60*60
@@ -164,11 +164,11 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE!){
   }
 
 
-/*}
+}
  else{
     return NextResponse.json({message: "Today's winner has been decided"});
 
-  } */
+  } 
 }
 else{
   return NextResponse.json({message: "only the owner is authorized to run this function, drop by at @haritchowdhury for more"});
