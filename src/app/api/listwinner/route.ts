@@ -49,7 +49,7 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE!){
   await connectDB();
   const top = await Winners.find({date: justDate})
 
-  if(!top[0]){ 
+/*  if(!top[0]){ */
 
   const dateZeroTimeStamp = parseInt(Date.parse(dateZero).toString().slice(0,10));
   const dateMinusOneTimeStamp =  dateZeroTimeStamp - 24*60*60
@@ -57,34 +57,58 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE!){
     [key: string]: number; // Define that assetList[key] will be a number for any key of type string
   }
   
-  let assetList: AssetList = {};
+  let assetList= {};
  
 
   const response = await axios.get(`https://api.kucoin.com/api/v1/market/allTickers/`);
   const assetDictionary = response.data.data.ticker
   /*console.log(assetDictionary)*/
-  for (let i = 0; i < assetDictionary.length; i++) {
-    assetList[assetDictionary[i].symbol] === Number(assetDictionary[i].volValue)
-  }
-  const sortedList = sortDictByValue(assetList);
-  const splicedList = dictionaryToArrayOfObjects(sortedList).slice(0,50);
+  /*interface AssetDictionary {
+    symbol: string;
+    symbolName:string;
+    buy:string;
+    bestBidSize: string;
+    sell: string;
+    bestAskSize: string;
+    changeRate: string;
+    changePrice: string;
+    high: string;
+    low: string;
+    vol: string;
+    volValue: string;
+    last: string;
+    averagePrice: string;
+    takerFeeRate: string;
+    makerFeeRate: string;
+    takerCoefficient: string;
+    makerCoefficient:string;
+
+  }*/
+
+  assetDictionary.sort(function(a,b){return b.volValue - a.volValue});
+
+  const splicedList = dictionaryToArrayOfObjects(assetDictionary).slice(0,50);
  
   interface PriceChange {
     [key: string]: number; // Define that assetList[key] will be a number for any key of type string
   }
   
-  let priceChange: PriceChange = {};
+  let priceChange = [];
   for (let i = 0; i < splicedList.length; i++) {
-    const res = await axios.get(`https://api.kucoin.com/api/v1/market/candles?type=1day&symbol=${splicedList[i].key}&startAt=${dateMinusOneTimeStamp}&endAt=${dateZeroTimeStamp}`);
+    const res = await axios.get(`https://api.kucoin.com/api/v1/market/candles?type=1day&symbol=${splicedList[i].value.symbol}&startAt=${dateMinusOneTimeStamp}&endAt=${dateZeroTimeStamp}`);
     const change = res.data.data[0][2]/res.data.data[0][1]
-    if (res){    
-      priceChange[splicedList[i].key] === change}
+    const token = splicedList[i].value.symbol;
+    priceChange.push({id: token,
+                      var : change
+    })
     }
-  const sortedChange =  sortDictByValue(priceChange);
-  const resultList = dictionaryToArrayOfObjects(sortedChange).slice(0,3);
-  const winnerList =  resultList[0].key + "_" +
-                  resultList[1].key + "_" +
-                  resultList[2].key  
+  
+    priceChange.sort(function(a,b){return b.var - a.var});
+  
+  const winnerList =  priceChange[0].id + "_" +
+  priceChange[1].id + "_" +
+  priceChange[2].id  
+  console.log(winnerList)
 
   const subs = await Answers.find({time: {$gte: dateMinusOneTimeStamp, $lt:dateZeroTimeStamp},  answer:winnerList}) //,  , 
 
@@ -140,11 +164,11 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE!){
   }
 
 
-}
+/*}
  else{
     return NextResponse.json({message: "Today's winner has been decided"});
 
-  } 
+  } */
 }
 else{
   return NextResponse.json({message: "only the owner is authorized to run this function, drop by at @haritchowdhury for more"});
