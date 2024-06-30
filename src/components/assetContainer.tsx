@@ -49,14 +49,14 @@ export function AssetContainer(props:any) {
   
         }
         getPriceFirst();
-      }, [props.value.toString()]);
+      }, [props.value]);
       
       useEffect( () => {
         const interval = setInterval(() => {
             getPrice()
         }, 15*1000)
         return ()=> clearInterval(interval)
-      }, [props.value.toString()])
+      }, [props.value])
     return(
 
         <div style = {stylex} className="font-mono font-bold ">
