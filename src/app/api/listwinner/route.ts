@@ -35,9 +35,9 @@ export async function postWinner(first, winnerList, justDate) {
           errorList.push(error.errors[e].message);
         }
         console.log(errorList);
-        return NextResponse.json({ msg: errorList });
+        return NextResponse.json({ message: errorList });
       } else {
-        return NextResponse.json({ msg: ["Unable to send message."] });
+        return NextResponse.json({ message: ["Unable to send message."] });
       }
     }
 
