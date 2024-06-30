@@ -13,7 +13,7 @@ export async function postWinner(first, winnerList, justDate) {
     const headersList = headers();
     console.log(headersList)
     const host = headersList.get('host')
-    const res = await fetch( /*host*/ "http://localhost:3000" + "/api/newwinner", {
+    const res = await fetch( host /* "http://localhost:3000" */ + "/api/newwinner", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
