@@ -41,8 +41,6 @@ export async function postWinner(first, winnerList, justDate) {
 
     }
 
-
-}
  
 export async function GET(request: Request) {
 function sortDictByValue(dict: Record<string, number>)
