@@ -25,6 +25,8 @@ export async function postWinner(first, winnerList, justDate) {
           justDate
         }),
       });
+      return NextResponse.json({ message: first });
+
     }
     catch (error) {
       if (error instanceof mongoose.Error.ValidationError) {
