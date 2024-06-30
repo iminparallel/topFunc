@@ -7,8 +7,8 @@ import mongoose from "mongoose";
 
 export async function POST(req:Request) {
   const { first, second, third, userName } = await req.json();
-  const date = new Date()
-  const time = parseInt(Date.parse(date).toString().slice(0,10));
+  const date = Date.parse(new Date())
+  const time = Number(date.toString().slice(0,10));
   const answer =  first.toUpperCase() + "_" + second.toUpperCase() + "_" + third.toUpperCase();
   console.log(time)
   try {
