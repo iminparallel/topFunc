@@ -13,8 +13,8 @@ export async function postWinner(first, winnerList, justDate) {
     const headersList = headers();
     console.log(headersList)
     const host = headersList.get('host')
-    try{
-    const res = await fetch( host /* "http://localhost:3000" */ + "/api/newwinner", {
+    try {
+      const res = await fetch( host /* "http://localhost:3000" */ + "/api/newwinner", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -25,7 +25,8 @@ export async function postWinner(first, winnerList, justDate) {
           justDate
         }),
       });
-     catch (error){
+    }
+    catch (error) {
       if (error instanceof mongoose.Error.ValidationError) {
         let errorList = [];
         for (let e in error.errors) {
@@ -36,7 +37,10 @@ export async function postWinner(first, winnerList, justDate) {
       } else {
         return NextResponse.json({ msg: ["Unable to send message."] });
       }
-     } 
+    }
+
+    }
+
 
 }
  
