@@ -53,7 +53,11 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE){
 
   const dateZeroTimeStamp = parseInt(Date.parse(dateZero).toString().slice(0,10));
   const dateMinusOneTimeStamp =  dateZeroTimeStamp - 24*60*60
-  let assetList = {}
+  interface AssetList {
+    [key: string]: number; // Define that assetList[key] will be a number for any key of type string
+  }
+  
+  let assetList: AssetList = {};
  
 
   const response = await axios.get(`https://api.kucoin.com/api/v1/market/allTickers/`);
@@ -65,7 +69,11 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE){
   const sortedList = sortDictByValue(assetList);
   const splicedList = dictionaryToArrayOfObjects(sortedList).slice(0,50);
  
-  let priceChange = {}
+  interface PriceChange {
+    [key: string]: number; // Define that assetList[key] will be a number for any key of type string
+  }
+  
+  let priceChange: PriceChange = {};
   for (let i = 0; i < splicedList.length; i++) {
     const res = await axios.get(`https://api.kucoin.com/api/v1/market/candles?type=1day&symbol=${splicedList[i].key}&startAt=${dateMinusOneTimeStamp}&endAt=${dateZeroTimeStamp}`);
     const change = res.data.data[0][2]/res.data.data[0][1]
