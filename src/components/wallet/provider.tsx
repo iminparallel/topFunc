@@ -10,7 +10,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 const config = getDefaultConfig({
   appName: "My RainbowKit App",
-  projectId: process.env.NEXT_PUBLIC_RAINBOW_PROJECT_ID, // Better to put in .env.local
+  projectId: process.env.NEXT_PUBLIC_RAINBOW_PROJECT_ID!, // Better to put in .env.local
   chains: [mainnet, polygon, optimism, arbitrum, base],
   ssr: true,
 });

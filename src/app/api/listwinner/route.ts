@@ -33,7 +33,7 @@ const url = new URL(request.url)
 const code = url.searchParams.get('code')    
 
 
-if(code===process.env.NEXT_PUBLIC_SECRET_CODE){    
+if(code===process.env.NEXT_PUBLIC_SECRET_CODE!){    
       //only the owner with secret phrase can access
   const url = new URL(request.url)
   const id = url.searchParams.get('symbol')
