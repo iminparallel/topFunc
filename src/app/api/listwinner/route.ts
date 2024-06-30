@@ -60,7 +60,7 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE){
   const assetDictionary = response.data.data.ticker
   /*console.log(assetDictionary)*/
   for (let i = 0; i < assetDictionary.length; i++) {
-    assetList[assetDictionary[i].symbol] = assetDictionary[i].volValue
+    assetList[assetDictionary[i].symbol] === assetDictionary[i].volValue
   }
   const sortedList = sortDictByValue(assetList);
   const splicedList = dictionaryToArrayOfObjects(sortedList).slice(0,50);
@@ -70,7 +70,7 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE){
     const res = await axios.get(`https://api.kucoin.com/api/v1/market/candles?type=1day&symbol=${splicedList[i].key}&startAt=${dateMinusOneTimeStamp}&endAt=${dateZeroTimeStamp}`);
     const change = res.data.data[0][2]/res.data.data[0][1]
     if (res){    
-      priceChange[splicedList[i].key] = change}
+      priceChange[splicedList[i].key] === change}
     }
   const sortedChange =  sortDictByValue(priceChange);
   const resultList = dictionaryToArrayOfObjects(sortedChange).slice(0,3);
