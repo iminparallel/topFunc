@@ -27,10 +27,18 @@ export function Play(props: NavbarProps) {
 
     useEffect( () => {
       
-    setError("");
+   
     setUserName(user?.username)
     setSuccess(false);
-    }, [isModalVisible, user?.username])
+    }, [ user?.username])
+
+  const handleCancel = async (e) => { 
+    e.preventDefault();
+    setError([])
+    setSuccess(false)
+    setIsModalVisible(false)
+
+  }  
 
   const handleSubmit = async (e) => {
         e.preventDefault();
@@ -75,7 +83,7 @@ export function Play(props: NavbarProps) {
             title="enter your top 3"
             open={isModalVisible}
             onOk={handleSubmit}
-            onCancel={() => setIsModalVisible(false)}
+            onCancel={handleCancel}
             width={600}>
             <div style={style_red}>  
             <Rules />

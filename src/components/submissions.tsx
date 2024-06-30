@@ -62,10 +62,9 @@ export function Submissions(props:any) {
       useEffect( () => {
         const interval = setInterval(() => {
             getSubmissions(user.username)
-            console.log(submissions)
         }, 30*1000)
         return ()=> clearInterval(interval)
-      }, [user.username]);
+      }, [user.username, submissions]);
     return(
         <>
         <button style={styley} className="font-mono font-bold " onClick={() => setIsModalVisible(true)}>
