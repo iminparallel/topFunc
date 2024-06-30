@@ -2,17 +2,18 @@
 import Link from 'next/link'
 import { Me } from "@/components/me";
 import { ConnectWalletButton } from "@/components/wallet/connect";
+import { CSSProperties } from "react";
 
 
 type NavbarProps = {};
 
 export function Navbar(props: NavbarProps) {
-  const style_hover = {
+  const style_hover: CSSProperties = {
       position: "fixed",
       top:0,
       width:"100%",
   }
-  const style_red = {
+  const style_red: CSSProperties = {
     color:"green"
 }
 

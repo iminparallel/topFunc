@@ -2,24 +2,25 @@ import Link from 'next/link';
 import Image from 'next/image'
 import {Winner} from '../components/winner'
 import {Submissions} from '../components/submissions'
+import { CSSProperties } from "react";
 
 
 export default function Home() {
-  const stylex = {
+  const stylex: CSSProperties = {
     position:"absolute",
     bottom:400,
     left:250,
     width:"100%",
   }
 
-  const styley = {
+  const styley: CSSProperties = {
     position:"absolute",
     top:100,
     left:120,
     width:"100%",
   }
 
-  const stylez = {
+  const stylez: CSSProperties = {
     position:"absolute",
     top:150,
     left:25,

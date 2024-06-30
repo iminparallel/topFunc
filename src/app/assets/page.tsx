@@ -4,6 +4,7 @@ import getAllAsset from '../../lib/getAllAsset'
 import Link from 'next/link'
 import Search from '@/app/ui/search';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import { CSSProperties } from "react";
 
 
 
@@ -26,18 +27,18 @@ export default async function AssetList({
     const assets = await assetData
     const coins = assets['data']['ticker']
     let listings = []
-    const style3 = {
+    const style3: CSSProperties = {
         position:"fixed",
         top:50,
         left:15,
         width:"100%",
       };
-    const style2 = {
+    const style2: CSSProperties = {
         position:"absolute",
         top:10,
         left:200,
       }; 
-      const style_red = {
+      const style_red: CSSProperties = {
         color:"green"
     }  
       

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useTma } from "./tma/hook";
 import { Modal } from "antd";
+import { CSSProperties } from "react";
 
 
 export function Submissions(props:any) {
@@ -13,17 +14,17 @@ export function Submissions(props:any) {
      
 
      const { user } = useTma();
-     const stylex = {
+     const stylex: CSSProperties = {
       position:"absolute",
       top:100,
       left:250,
       width:"100%",
     };
-    const gap = {
+    const gap: CSSProperties = {
         marginRight: '45px',
       };
 
-    const styley = {
+    const styley: CSSProperties = {
         position:"absolute",
         top:175,
         right:150,

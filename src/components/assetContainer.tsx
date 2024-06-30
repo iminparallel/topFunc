@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { CSSProperties } from "react";
 
 
 
@@ -11,14 +12,14 @@ export function AssetContainer(props:any) {
      const [high, setHigh] = useState("");
      const [low, setLow] = useState("");
      const [loading, setLoading] = useState(true);
-     const stylex = {
+     const stylex: CSSProperties = {
       position:"absolute",
       top:200,
       left:100,
       width:"100%",
     }
 
-    const styley = {
+    const styley: CSSProperties = {
       position:"absolute",
       top:200,
       left:-5,

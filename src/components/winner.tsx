@@ -3,6 +3,7 @@ import {  useState, useEffect } from "react";
 import {Winners} from "../app/models/winners"; 
 import axios from "axios";
 import { Play } from "@/components/play";
+import { CSSProperties } from "react";
 
 export function Winner() {
   const [winner, setWinner] = useState("");
@@ -17,13 +18,13 @@ export function Winner() {
      + (date.getMonth() + 1).toString() + "/"
      + date.getDate().toString()
 
-  const style_hover2 = {
+  const style_hover2: CSSProperties = {
     position: "fixed",
     bottom:25,
     left:15,
     width:"100%",
 }
-const stylea = {
+const stylea: CSSProperties = {
   position:"absolute",
   top:175,
   right:300,

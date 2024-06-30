@@ -4,6 +4,7 @@ import getAllAsset from '../../../lib/getAllAsset'
 import Link from 'next/link';
 import {AssetContainer} from '../../../components/assetContainer'
 import {  } from 'next/navigation';
+import { CSSProperties } from "react";
 
 
 
@@ -44,17 +45,17 @@ export default async function AssetPage({ params: { assetId } }: Params) {
     //const assetData: Promise<User> = getGemini(id)    
     const asset = await assetData
     //const asset = await getAsset(assetId)
-    const style3 = {
+    const style3: CSSProperties = {
         position:"absolute",
         bottom:255,
         left:75,
       };
-    const style2 = {
+    const style2: CSSProperties = {
         position:"absolute",
         top:100,
         left:75,
       };
-      const style1 = {
+      const style1: CSSProperties = {
         position:"absolute",
         top:25,
         right:100,

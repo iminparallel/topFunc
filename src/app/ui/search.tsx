@@ -1,5 +1,6 @@
 'use client';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import { CSSProperties } from "react";
 
 //import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
  
@@ -7,7 +8,7 @@ export default function Search() {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();
-    const style_hover = {
+    const style_hover: CSSProperties = {
         position: "fixed",
         bottom:230,
         width:"100%",
