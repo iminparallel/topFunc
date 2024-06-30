@@ -1,9 +1,10 @@
-"use client"
-import { TTelegramUser } from "@/types/telegram-user";
+"use client";
+
+import { User } from "@tma.js/sdk-react";
 import { createContext } from "react";
 
-export type TmaContextType = {
-  user: TTelegramUser;
-};
+export interface ITmaContext {
+  user: User;
+}
 
-export const TmaContext = createContext<TmaContextType>({} as TmaContextType);
+export const TmaContext = createContext<ITmaContext>({} as ITmaContext);
