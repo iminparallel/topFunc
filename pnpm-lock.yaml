@@ -62,6 +62,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.4)
+      telegram-user:
+        specifier: link:@/types/telegram-user
+        version: link:@/types/telegram-user
       viem:
         specifier: ^2.16.4
         version: 2.16.4(bufferutil@4.0.8)(typescript@5.5.2)(utf-8-validate@5.0.10)(zod@3.22.4)

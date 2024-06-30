@@ -27,6 +27,7 @@
     "react-dom": "^18",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
+    "telegram-user": "link:@/types/telegram-user",
     "viem": "^2.16.4",
     "wagmi": "^2.10.8"
   },
