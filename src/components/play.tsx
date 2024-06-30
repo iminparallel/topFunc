@@ -20,8 +20,9 @@ export function Play(props: any) {
   }
     
     const { user } = useTma();
-
-    const name = user.username;
+   if(user){const name = user.username}
+   else{const name = "something wrong"}
+    
     
 
     useEffect( () => {   
