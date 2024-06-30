@@ -4,44 +4,12 @@ import connectDB from "../../../lib/mongodb";
 import {Answers} from "../../models/answers"; 
 import {Winners} from "../../models/winners"; 
 import { headers } from 'next/headers';
+import mongoose from "mongoose";
 
 type ResponseData = {
   message: string
 }
 
-export async function postWinner(first, winnerList, justDate) {
-    const headersList = headers();
-    console.log(headersList)
-    const host = headersList.get('host')
-    try {
-      const res = await fetch( host /* "http://localhost:3000" */ + "/api/newwinner", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          first,
-          winnerList,
-          justDate
-        }),
-      });
-      return NextResponse.json({ message: first });
-
-    }
-    catch (error) {
-      if (error instanceof mongoose.Error.ValidationError) {
-        let errorList = [];
-        for (let e in error.errors) {
-          errorList.push(error.errors[e].message);
-        }
-        console.log(errorList);
-        return NextResponse.json({ message: errorList });
-      } else {
-        return NextResponse.json({ message: ["Unable to send message."] });
-      }
-    }
-
-    }
 
  
 export async function GET(request: Request) {
@@ -113,17 +81,58 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE){
      winner = subs[0]
   }
 
-  try{
-    const identifier = winner.userName + "#" + winner._id
-    await postWinner(identifier, winnerList, justDate)
-  }
-  catch{
-    const slug = "no winner"
-    await postWinner(slug, winnerList, justDate)
-  }
-   console.log("A1")
 
-  return NextResponse.json( {message: subs});
+  const headersList = headers();
+  const host = headersList.get('host')
+  console.log("host", host)
+  
+  try {
+
+    try{
+      const first = winner.userName + "#" + winner._id
+      const res = await fetch( /*host*/  "http://" + host  + "/api/newwinner", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          first,
+          winnerList,
+          justDate
+        }),
+      });
+      return NextResponse.json({ message: first });
+    }
+    catch(error){
+      const first = "no winner"
+      const res = await fetch( /*host*/  "http://" + host  + "/api/newwinner", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          first,
+          winnerList,
+          justDate
+        }),
+      });
+      return NextResponse.json({ message: "no winner" });
+    } 
+  }
+  catch (error) {
+    if (error instanceof mongoose.Error.ValidationError) {
+      let errorList = [];
+      for (let e in error.errors) {
+        errorList.push(error.errors[e].message);
+      }
+      console.log(errorList);
+      return NextResponse.json({ message: errorList });
+    } else {
+      return NextResponse.json({ message: error });
+    }
+  }
+
+
 }
  else{
     return NextResponse.json({message: "Today's winner has been decided"});

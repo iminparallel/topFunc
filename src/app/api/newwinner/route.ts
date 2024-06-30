@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 
 export async function POST(req) {
   const { first, winnerList, justDate } = await req.json();
-  console.log(first, winnerList)
+  console.log(first, winnerList, justDate)
   const winner = first
   const answer = winnerList
   const date = justDate
