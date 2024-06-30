@@ -10,6 +10,7 @@ export function Submissions(props:any) {
      const [loading, setLoading] = useState(true);
      const [isModalVisible, setIsModalVisible] = useState(false);
      const [empty, setEmpty] = useState(false);
+     
 
      const { user } = useTma();
      const stylex = {
@@ -17,7 +18,7 @@ export function Submissions(props:any) {
       top:100,
       left:250,
       width:"100%",
-    }
+    };
     const gap = {
         marginRight: '45px',
       };
@@ -27,7 +28,7 @@ export function Submissions(props:any) {
         top:175,
         right:150,
         color:"green",
-    }
+    };
 
 
      async function getSubmissions() {
@@ -56,7 +57,7 @@ export function Submissions(props:any) {
   
         }
         getSubmissionsFirst();
-      }, []);
+      }, [user.username]);
       
       useEffect( () => {
         const interval = setInterval(() => {
@@ -64,7 +65,7 @@ export function Submissions(props:any) {
             console.log(submissions)
         }, 30*1000)
         return ()=> clearInterval(interval)
-      }, []);
+      }, [user.username]);
     return(
         <>
         <button style={styley} className="font-mono font-bold " onClick={() => setIsModalVisible(true)}>

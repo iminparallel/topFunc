@@ -70,7 +70,7 @@ const stylea = {
 
     }
     getWinnerFirst();
-  }, []);
+  }, [today]);
   
 
   useEffect( () => {
@@ -86,7 +86,7 @@ const stylea = {
         }
     }, 100*1000)
     return ()=> clearInterval(interval)
-  }, [])
+  }, [today])
 
     return (
       <>
