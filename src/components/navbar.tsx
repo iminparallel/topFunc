@@ -26,9 +26,7 @@ export function Navbar(props: NavbarProps) {
       <p style = {style_red} className="py-1">
         <Link href="/"> Home </Link>
       </p>
-      <p style = {style_red} className="py-1">
-        <Link href="/assets"> AssetList </Link>
-      </p>
+
       <p className="py-1">
         <Me/>
       </p>
@@ -38,3 +36,7 @@ export function Navbar(props: NavbarProps) {
       </nav>
     );
   }
+  /*
+        <p style = {style_red} className="py-1">
+        <Link href="/assets"> AssetList </Link>
+      </p>*/ 
