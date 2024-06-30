@@ -79,8 +79,11 @@ export async function generateStaticParams() {
     const assets = await assetData
     const coins = assets['data']['ticker']
 
-
-    return coins.map(coin => ({
+    interface Coin {
+        symbol: string;
+        // other properties if exist
+      }
+    return coins.map((coin: Coin) => ({
         assetId: coin.symbol.toString()
     }))
 }
