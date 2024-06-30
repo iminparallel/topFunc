@@ -40,7 +40,7 @@ export async function generateMetadata({ params: { assetId } }: Params): Promise
 
 export default async function AssetPage({ params: { assetId } }: Params) {
     //const id = assetId.replace("-", "")
-    const assetData: Promise<Asset[]> = getAsset(assetId)   
+    const assetData = getAsset(assetId)   
     //const assetData: Promise<User> = getGemini(id)    
     const asset = await assetData
     //const asset = await getAsset(assetId)
@@ -73,7 +73,7 @@ export default async function AssetPage({ params: { assetId } }: Params) {
        
  */
 export async function generateStaticParams() {
-    const assetData: Promise<Asset[]> = getAllAsset()
+    const assetData = getAllAsset()
     const assets = await assetData
     const coins = assets['data']['ticker']
 
