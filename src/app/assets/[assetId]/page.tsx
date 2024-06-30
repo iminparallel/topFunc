@@ -17,7 +17,7 @@ type Params = {
 }
 
 export async function generateMetadata({ params: { assetId } }: Params): Promise<Metadata> {
-    const assetData: Promise<User> = getAsset(assetId)
+    const assetData = getAsset(assetId)
     //const assetData: Promise<User> = getGemini(assetId)
 
     const asset = await assetData
