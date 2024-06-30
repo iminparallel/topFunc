@@ -22,7 +22,7 @@ function sortDictByValue(dict: Record<string, number>)
             return acc;
           }, {} as Record<string, number>);
       } 
-const dictionaryToArrayOfObjects = (dictionary) => {
+const dictionaryToArrayOfObjects = (dictionary: Dictionary) => {
         return Object.keys(dictionary).map(key => ({
             key: key,
             value: dictionary[key]
