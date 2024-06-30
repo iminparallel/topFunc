@@ -6,7 +6,7 @@ import { Rules } from "@/components/rules";
 import { useTma } from "./tma/hook";
 
 
-export function Play(props: NavbarProps) {
+export function Play(props: any) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [first, setFirst] = useState("");
     const [second, setSecond] = useState("");

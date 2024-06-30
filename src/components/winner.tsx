@@ -4,7 +4,7 @@ import axios from "axios";
 import { Play } from "@/components/play";
 import { CSSProperties } from "react";
 
-export function Winner() {
+export function Winner(props:any) {
   const [winner, setWinner] = useState("");
   const [first, setFirst] = useState("");
   const [second, setSecond] = useState("");
