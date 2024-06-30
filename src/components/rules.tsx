@@ -4,7 +4,7 @@ import {  useState } from "react";
 import { Modal } from "antd";
 import Link from 'next/link'
 
-export function Rules(props: NavbarProps) {
+export function Rules(props: any) {
     const [isModalVisible, setIsModalVisible] = useState(false);
 
 
