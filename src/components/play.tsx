@@ -59,6 +59,7 @@ export function Play(props: NavbarProps) {
         const { msg, success } = await res.json();
         setError(msg);
         setSuccess(success);
+        console.log(error)
     
         if (success) {
           setFirst("");
@@ -118,14 +119,14 @@ export function Play(props: NavbarProps) {
             </form>
             <div>
             {error &&
-          error.map((e) => (
-            <div
-              className={`${
+          error.map( e => (
+            <li key={e} >
+            <div className={`${
                 success ? "text-green-800" : "text-red-600"
-              } px-5 py-2`}
-            >
+              } px-5 py-2`}>
               {e}
             </div>
+            </li>
           ))}
             </div>  
 
