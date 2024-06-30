@@ -25,8 +25,8 @@ export function Play(props: any) {
 
     useEffect( () => { 
       if (user.username  ){
-    setUserName(name)}
-    }, [ name])
+    setUserName(user.username)}
+    }, [ user])
 
   const handleCancel = async (e:any) => { 
     e.preventDefault();
