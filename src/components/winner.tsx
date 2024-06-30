@@ -32,7 +32,7 @@ const stylea: CSSProperties = {
 }
 
 
-  async function getWinner(today) {
+  async function getWinner(today: String) {
     try{    
     const response = await axios.get("api/todayschamp/" , {params:{date : today}});
     const todaysWinner = response.data.message.winner.split("#")

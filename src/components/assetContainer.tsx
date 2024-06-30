@@ -26,7 +26,7 @@ export function AssetContainer(props:any) {
       width:"100%",
     }
 
-     async function getPrice(symbol:Str) {
+     async function getPrice(symbol:String) {
         const response = await axios.get("api/asset/" , {params:{symbol : symbol}});
         console.log('data', response.data.message)
         setPrice(response.data.message.data.last);
