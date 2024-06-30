@@ -54,9 +54,11 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE){
   const dateZeroTimeStamp = parseInt(Date.parse(dateZero).toString().slice(0,10));
   const dateMinusOneTimeStamp =  dateZeroTimeStamp - 24*60*60
   let assetList = {}
-  const assetDictionary = response.data.data.ticker
+ 
 
   const response = await axios.get(`https://api.kucoin.com/api/v1/market/allTickers/`);
+  const assetDictionary = response.data.data.ticker
+  /*console.log(assetDictionary)*/
   for (let i = 0; i < assetDictionary.length; i++) {
     assetList[assetDictionary[i].symbol] = assetDictionary[i].volValue
   }
