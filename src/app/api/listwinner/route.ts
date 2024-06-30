@@ -106,14 +106,14 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE){
   }
    console.log("A1")
 
-  return NextResponse.json( subs);
+  return NextResponse.json( {message: subs});
 }
  else{
-    return NextResponse.json("Today's winner has been decided");
+    return NextResponse.json({message: "Today's winner has been decided"});
 
   } 
 }
 else{
-  return NextResponse.json("only the owner is authorized to run this function");
+  return NextResponse.json({message: "only the owner is authorized to run this function, drop by at @haritchowdhury for more"});
 }
 }
