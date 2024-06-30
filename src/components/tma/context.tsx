@@ -1,3 +1,4 @@
+"use client"
 import { TTelegramUser } from "@/types/telegram-user";
 import { createContext } from "react";
 

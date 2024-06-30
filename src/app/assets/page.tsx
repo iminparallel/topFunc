@@ -41,6 +41,12 @@ export default async function AssetList({
       const style_red: CSSProperties = {
         color:"green"
     }  
+
+
+    interface Listing {
+      symbol: string;
+
+    }
       
 
     for (let i = 0; i < coins.length; i++) {
@@ -56,7 +62,7 @@ export default async function AssetList({
         <div>
             <br/>
         <ul style = {style2}>
-        {listings.map(listing=> {
+        {listings.map((listing:Listing)=> {
          return (
             <li style = {style_red} key={listing.symbol}>
             <p >
