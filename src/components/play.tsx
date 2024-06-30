@@ -14,7 +14,7 @@ export function Play(props: any) {
     const [time, setTime] = useState("");
     const [error, setError] = useState([]);
     const [success, setSuccess] = useState(false);
-    const [userName, setUserName] = useState("");
+    const [userName, setUserName] = useState<string>("");
     const style_red = {
       color:"green"
   }
