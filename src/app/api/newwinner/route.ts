@@ -5,7 +5,7 @@ import {Winners} from "../../models/winners";
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 
-export async function POST(req) {
+export async function POST(req:Request) {
   const { first, winnerList, justDate } = await req.json();
   console.log(first, winnerList, justDate)
   const winner = first

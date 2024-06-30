@@ -85,17 +85,8 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE){
   const winnerList =  resultList[0].key + "_" +
                   resultList[1].key + "_" +
                   resultList[2].key  
-  console.log(winnerList)  
-  
-  interface Winner {
-    [key: string]: string; // Define that assetList[key] will be a number for any key of type string
-  }
-  
-  let winner: Winner = {};
+
   const subs = await Answers.find({time: {$gte: dateMinusOneTimeStamp, $lt:dateZeroTimeStamp},  answer:winnerList}) //,  , 
-  if(subs){
-     winner[subs[0].userName] = subs[0]._id
-  }
 
 
   const headersList = headers();
@@ -105,7 +96,7 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE){
   try {
 
     try{
-      const first = winner.userName + "#" + winner._id
+      const first = subs[0].userName + "#" + subs[0]._id
       const res = await fetch( /*host*/  "http://" + host  + "/api/newwinner", {
         method: "POST",
         headers: {

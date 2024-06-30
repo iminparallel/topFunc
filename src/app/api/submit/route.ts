@@ -5,7 +5,7 @@ import {Answers} from "../../models/answers";
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 
-export async function POST(req) {
+export async function POST(req:Request) {
   const { first, second, third, userName } = await req.json();
   const date = new Date()
   const time = parseInt(Date.parse(date).toString().slice(0,10));
