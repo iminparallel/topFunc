@@ -20,4 +20,4 @@ const winnersSchema = new Schema({
 const Winners =
   mongoose.models.Winners || mongoose.model("Winners", winnersSchema);
 
-module.exports = {Winners};
+export {Winners};
