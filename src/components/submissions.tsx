@@ -35,7 +35,7 @@ export function Submissions(props:any) {
         _id: string;
         userName: string;
         first: string;
-        seconf: string;
+        second: string;
         third: string;
         answer: string;
         time:Number;
