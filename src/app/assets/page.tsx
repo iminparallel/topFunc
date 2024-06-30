@@ -22,7 +22,7 @@ export default async function AssetList({
 
     const query = searchParams?.query || '';
     const currentPage = Number(searchParams?.page) || 1;
-    const assetData: Promise<Asset[]> = getAllAsset()
+    const assetData = getAllAsset()
     const assets = await assetData
     const coins = assets['data']['ticker']
     let listings = []
