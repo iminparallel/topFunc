@@ -85,7 +85,7 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE!){
 
   }*/
 
-  assetDictionary.sort(function(a,b){return b.volValue - a.volValue});
+  assetDictionary.sort(function(a:Dictionary<T>,b:Dictionary<T>){return b.volValue - a.volValue});
 
   const splicedList = dictionaryToArrayOfObjects(assetDictionary).slice(0,50);
  
@@ -103,7 +103,7 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE!){
     })
     }
   
-    priceChange.sort(function(a,b){return b.var - a.var});
+    priceChange.sort(function(a:Dictionary<T>,b:Dictionary<T>){return b.var - a.var});
   
   const winnerList =  priceChange[0].id + "_" +
   priceChange[1].id + "_" +
