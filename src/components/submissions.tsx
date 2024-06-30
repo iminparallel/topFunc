@@ -31,6 +31,18 @@ export function Submissions(props:any) {
         color:"green",
     };
 
+    interface Submission {
+        _id: string;
+        userName: string;
+        first: string;
+        seconf: string;
+        third: string;
+        answer: string;
+        time:Number;
+
+      }
+
+
 
      async function getSubmissions(username: String) {
         const response = await axios.get("api/getsubmissions/" , {params:{user : username}});
@@ -82,7 +94,7 @@ export function Submissions(props:any) {
           {empty ?  (<p> no entries so far ... takes 30s to load</p>):
      (
         <div> 
-        {submissions.map(submission=> {
+        {submissions.map((submission: Submission)=> {
           return (
              <li key={submission._id} >
               <div className="border-t font-mono flex flex-col">
