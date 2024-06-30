@@ -65,19 +65,23 @@ export function Submissions(props:any) {
           else{
             setEmpty(false)
           }
-          setSubmissions(response.data.message);
+          if (user.username){
+            setSubmissions(response.data.message);
+
+          }
           setLoading(false)
   
         }
         getSubmissionsFirst();
-      }, [user.username]);
+      }, [user]);
       
       useEffect( () => {
         const interval = setInterval(() => {
-            getSubmissions(user.username)
+            if (user.username){getSubmissions(user.username)}
+            
         }, 30*1000)
         return ()=> clearInterval(interval)
-      }, [user.username, submissions]);
+      }, [user, submissions]);
     return(
         <>
         <button style={styley} className="font-mono font-bold " onClick={() => setIsModalVisible(true)}>
