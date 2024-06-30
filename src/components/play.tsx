@@ -20,11 +20,13 @@ export function Play(props: any) {
   }
     
     const { user } = useTma();
+
+    const name = user.username;
     
 
     useEffect( () => {   
-    setUserName(user.username)
-    }, [ user.username])
+    setUserName(name)
+    }, [ name])
 
   const handleCancel = async (e:any) => { 
     e.preventDefault();
