@@ -60,7 +60,9 @@ export default async function AssetPage({ params: { assetId } }: Params) {
         right:100,
       };  
 
-    if (!asset.data.symbol) notFound()
+    if (!asset.data.symbol) {
+        console.log("invalid asset")
+    }
        
 
     return (
