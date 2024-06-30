@@ -25,11 +25,8 @@ export function Play(props: NavbarProps) {
     const { user } = useTma();
     
 
-    useEffect( () => {
-      
-   
+    useEffect( () => {   
     setUserName(user?.username)
-    setSuccess(false);
     }, [ user?.username])
 
   const handleCancel = async (e) => { 
