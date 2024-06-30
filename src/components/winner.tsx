@@ -1,6 +1,5 @@
 'use client'
 import {  useState, useEffect } from "react";
-import {Winners} from "../app/models/winners"; 
 import axios from "axios";
 import { Play } from "@/components/play";
 import { CSSProperties } from "react";

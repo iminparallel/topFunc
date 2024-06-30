@@ -5,7 +5,6 @@ import { Modal } from "antd";
 import { Rules } from "@/components/rules";
 import { useTma } from "./tma/hook";
 
-import {Winners} from "../../models/winners";
 
 export function Play(props: NavbarProps) {
     const [isModalVisible, setIsModalVisible] = useState(false);
