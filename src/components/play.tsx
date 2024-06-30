@@ -20,13 +20,12 @@ export function Play(props: any) {
   }
     
     const { user } = useTma();
-   if(user){const name = user.username}
-   else{const name = "something wrong"}
-    
+ 
     
 
-    useEffect( () => {   
-    setUserName(name)
+    useEffect( () => { 
+      if (user.username  ){
+    setUserName(name)}
     }, [ name])
 
   const handleCancel = async (e:any) => { 
