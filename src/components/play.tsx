@@ -30,7 +30,7 @@ export function Play(props: NavbarProps) {
     setError("");
     setUserName(user?.username)
     setSuccess(false);
-    }, [isModalVisible])
+    }, [isModalVisible, user?.username])
 
   const handleSubmit = async (e) => {
         e.preventDefault();

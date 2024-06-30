@@ -25,8 +25,8 @@ export function AssetContainer(props:any) {
       width:"100%",
     }
 
-     async function getPrice() {
-        const response = await axios.get("api/asset/" , {params:{symbol : props.value.toString()}});
+     async function getPrice(symbol:Str) {
+        const response = await axios.get("api/asset/" , {params:{symbol : symbol}});
         console.log('data', response.data.message)
         setPrice(response.data.message.data.last);
         setTime(response.data.message.data.time);
@@ -53,7 +53,7 @@ export function AssetContainer(props:any) {
       
       useEffect( () => {
         const interval = setInterval(() => {
-            getPrice()
+            getPrice(props.value)
         }, 15*1000)
         return ()=> clearInterval(interval)
       }, [props.value])

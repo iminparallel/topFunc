@@ -31,7 +31,7 @@ const stylea = {
 }
 
 
-  async function getWinner() {
+  async function getWinner(today) {
     try{    
     const response = await axios.get("api/todayschamp/" , {params:{date : today}});
     const todaysWinner = response.data.message.winner.split("#")
@@ -76,7 +76,7 @@ const stylea = {
   useEffect( () => {
     const interval = setInterval(() => {
         try{
-            getWinner()
+            getWinner(today)
         }
         catch{
             setFirst("Not yet selected")

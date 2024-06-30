@@ -31,8 +31,8 @@ export function Submissions(props:any) {
     };
 
 
-     async function getSubmissions() {
-        const response = await axios.get("api/getsubmissions/" , {params:{user : user.username}});
+     async function getSubmissions(username) {
+        const response = await axios.get("api/getsubmissions/" , {params:{user : username}});
         console.log( response.data.message)
                  if(response.data.message.length === 0){
             setEmpty(true)
@@ -61,7 +61,7 @@ export function Submissions(props:any) {
       
       useEffect( () => {
         const interval = setInterval(() => {
-            getSubmissions()
+            getSubmissions(user.username)
             console.log(submissions)
         }, 30*1000)
         return ()=> clearInterval(interval)
