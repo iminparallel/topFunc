@@ -2,7 +2,6 @@
 'use client'
 import {  useState, useEffect } from "react";
 import { Modal } from "antd";
-import { PlayForm } from "@/components/playForm";
 import { Rules } from "@/components/rules";
 import connectDB from "../../../lib/mongodb";
 import { useTma } from "./tma/hook";
