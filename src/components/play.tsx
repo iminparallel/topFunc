@@ -3,7 +3,6 @@
 import {  useState, useEffect } from "react";
 import { Modal } from "antd";
 import { Rules } from "@/components/rules";
-import connectDB from "../../../lib/mongodb";
 import { useTma } from "./tma/hook";
 
 import {Winners} from "../../models/winners";
