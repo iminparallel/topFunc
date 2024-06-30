@@ -98,7 +98,7 @@ export function Submissions(props:any) {
           return (
              <li key={submission._id} >
               <div className="border-t font-mono flex flex-col">
-                <div style={gap}> {submission.time} </div>
+                <div style={gap}> {submission.time.toString()} </div>
                 <div style={gap}> {submission.first} </div>
                 <div style={gap}> {submission.second} </div>
                 <div style={gap}> {submission.third} </div>
