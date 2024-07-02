@@ -49,9 +49,6 @@ const styley: CSSProperties = {
       <p className="py-1">
         <Me/>
       </p>
-      <p style = {style_red} className="py-1">
-        <Link href="/"> Home </Link>
-      </p >
         <p >
         <Submissions/>
         </p>
