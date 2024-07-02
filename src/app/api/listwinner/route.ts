@@ -6,17 +6,14 @@ import {Winners} from "../../models/winners";
 import { headers } from 'next/headers';
 import mongoose from "mongoose";
 
-type ResponseData = {
-  message: string
-}
+export const maxDuration = 60
 
-export const config = {
-  maxDuration: 60,
-}
+
 
 
  
-export async function GET(request: Request) {
+export async function GET(request: Request
+) {
 const dictionaryToArrayOfObjects = (dictionary: any) => {
         return Object.keys(dictionary).map(key => ({
             key: key,
