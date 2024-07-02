@@ -10,6 +10,10 @@ type ResponseData = {
   message: string
 }
 
+export const config = {
+  maxDuration: 60,
+}
+
 
  
 export async function GET(request: Request) {
