@@ -79,7 +79,7 @@ interface Listing {
             <li key={listing.symbol}>
             <p >
                 <Link href={`/assets/${listing.symbol}`}>
-                    {listing.symbol}
+                    {listing.symbol} 
                 </Link> 
             </p>
             </li>

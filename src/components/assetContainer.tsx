@@ -29,25 +29,27 @@ export function AssetContainer(props:any) {
 
      async function getPrice(symbol:String) {
         const response = await axios.get(window.location.origin +"/api/asset" , {params:{symbol : symbol}});
+        if(response){
         setPrice(response.data.message.data.last);
         setTime(response.data.message.data.time);
         setVolume(response.data.message.data.vol);
         setHigh(response.data.message.data.high);
         setLow(response.data.message.data.low);
+        }
 
       }
 
       useEffect(() => {
         async function getPriceFirst() {
           const response = await axios.get(window.location.origin +"/api/asset", {params:{symbol : props.value.toString()}});
-          console.log('data', response.data.message)
+          if(response){
           setPrice(response.data.message.data.last);
           setTime(response.data.message.data.time);
           setVolume(response.data.message.data.volValue);
           setHigh(response.data.message.data.high);
           setLow(response.data.message.data.low);
           setLoading(false)
-  
+          }
         }
         getPriceFirst();
       }, [props.value]);
