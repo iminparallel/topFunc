@@ -31,12 +31,7 @@ export default async function Home({
     left:15,
     width:"100%",
   };
-const style2: CSSProperties = {
-    position:"absolute",
-    top:10,
-    left:240,
-    color:"green"
-  }; 
+
   const style_red: CSSProperties = {
     left:200,
 }  
@@ -72,7 +67,7 @@ interface Listing {
     <section style = {style_red}  className="font-mono font-bold flex min-h-screen flex-col items-center justify-between">
         <div >
             <br/>
-        <ul style = {style2}>
+        <ul >
         {listings.map((listing:Listing)=> {
          return (
             <li key={listing.symbol}>
