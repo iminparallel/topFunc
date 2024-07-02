@@ -27,8 +27,8 @@ export default async function Home({
 
   const style3: CSSProperties = {
     position:"fixed",
-    top:50,
-    left:15,
+    top:0,
+    left:220,
     width:"100%",
   };
 
@@ -67,7 +67,7 @@ interface Listing {
     <section style = {style_red}  className="font-mono font-bold flex min-h-screen flex-col items-center justify-between">
         <div >
             <br/>
-        <ul >
+        <ul style={style3}>
         {listings.map((listing:Listing)=> {
          return (
             <li key={listing.symbol}>
