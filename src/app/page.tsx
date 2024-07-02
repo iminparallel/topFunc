@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image'
 import {Winner} from '../components/winner'
 import {Submissions} from '../components/submissions'
@@ -78,9 +77,7 @@ interface Listing {
          return (
             <li key={listing.symbol}>
             <p >
-                <Link href={`/assets/${listing.symbol}`}>
                     {listing.symbol} 
-                </Link> 
             </p>
             </li>
          )
