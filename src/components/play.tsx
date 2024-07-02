@@ -4,6 +4,7 @@ import {  useState, useEffect } from "react";
 import { Modal } from "antd";
 import { Rules } from "@/components/rules";
 import { useTma } from "./tma/hook";
+import { CSSProperties } from "react";
 
 
 export function Play(props: any) {
@@ -21,10 +22,13 @@ export function Play(props: any) {
     
     const { user } = useTma();
  
-    
+    const styley: CSSProperties = {
+      position:"absolute",
+      color:"green",
+  };
 
     useEffect( () => { 
-      if (user.username  ){
+      if (user?.username  ){
     setUserName(user.username)}
     }, [ user])
 
@@ -73,7 +77,7 @@ export function Play(props: any) {
     
     return(
             <>
-            <button onClick={() => setIsModalVisible(true)}>
+            <button style={styley} className = "py-7"onClick={() => setIsModalVisible(true)}>
             Play </button>
             <Modal
             className = "font-mono font-bold"

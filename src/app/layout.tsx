@@ -21,12 +21,17 @@ export default function RootLayout({
     <>
     <html lang="en">
       <body className={inter.className}>
-      <TmaProvider>
+      <TmaProvider>   
       <WalletProvider> <Navbar/>
           {children} </WalletProvider>
-          </TmaProvider>    
+          </TmaProvider>
       </body>
     </html>
     </>
   );
 }
+/*
+ 
+ 
+
+ */

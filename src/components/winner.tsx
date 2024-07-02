@@ -121,9 +121,7 @@ const stylea: CSSProperties = {
       </div> )    
           }
 
-    <div style = {stylea} className="font-mono font-bold">
-      <Play/>  
-    </div>
+
       </> 
   
 

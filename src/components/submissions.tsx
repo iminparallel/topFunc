@@ -26,8 +26,6 @@ export function Submissions(props:any) {
 
     const styley: CSSProperties = {
         position:"absolute",
-        top:175,
-        right:150,
         color:"green",
     };
 

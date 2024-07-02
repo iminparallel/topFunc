@@ -4,8 +4,21 @@ import {Winner} from '../components/winner'
 import {Submissions} from '../components/submissions'
 import { CSSProperties } from "react";
 
+import type { Metadata } from 'next'
+import getAllAsset from '../lib/getAllAsset'
+import Search from '@/app/ui/search';
+import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 
-export default function Home() {
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) {
+
   const stylex: CSSProperties = {
     position:"absolute",
     bottom:400,
@@ -13,37 +26,70 @@ export default function Home() {
     width:"100%",
   }
 
-  const styley: CSSProperties = {
-    position:"absolute",
-    top:100,
-    left:120,
+  const style3: CSSProperties = {
+    position:"fixed",
+    top:50,
+    left:15,
     width:"100%",
-  }
-
-  const stylez: CSSProperties = {
+  };
+const style2: CSSProperties = {
     position:"absolute",
-    top:150,
-    left:25,
-    width:"50%",
-  }
+    top:10,
+    left:240,
+  }; 
+  const style_red: CSSProperties = {
+    left:200,
+}  
+
+
+interface Listing {
+  symbol: string;
+
+}
+
+  const query = searchParams?.query || '';
+  const currentPage = Number(searchParams?.page) || 1;
+  const assetData = getAllAsset()
+  const assets = await assetData
+  const coins = assets['data']['ticker']
+  let listings = []
+
+    
+
+  for (let i = 0; i < coins.length; i++) {
+      if (coins[i].symbol.toLowerCase().includes(query.toLowerCase()) )
+      {
+        listings.push(coins[i])
+      }
+    }
 
 
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
      
-    <div style = {styley} className="font-mono font-bold">
-   
-    <Image style = {stylez}
-      src="sisyphus.svg"
-      width={250}
-      height={250}
-      alt="chained"
-    />
-    </div>
-    <p style = {stylex} className="font-mono font-bold">  topFunc()</p>
     <Winner/>
-    <Submissions/>
+
+    <section style = {style_red}  className="font-mono font-bold flex min-h-screen flex-col items-center justify-between">
+        <div >
+            <br/>
+        <ul style = {style2}>
+        {listings.map((listing:Listing)=> {
+         return (
+            <li key={listing.symbol}>
+            <p >
+                <Link href={`/assets/${listing.symbol}`}>
+                    {listing.symbol}
+                </Link> 
+            </p>
+            </li>
+         )
+        })}
+
+        </ul>  
+        </div>  
+        < Search/> 
+        </section>
    
     </main>
     
