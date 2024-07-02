@@ -46,7 +46,7 @@ export function Play(props: any) {
    
 
 
-        const res = await fetch("api/submit", {
+        const res = await fetch(window.location.origin  + "/api/submit", {
           method: "POST",
           headers: {
             "Content-type": "application/json",

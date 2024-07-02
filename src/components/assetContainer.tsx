@@ -14,8 +14,8 @@ export function AssetContainer(props:any) {
      const [loading, setLoading] = useState(true);
      const stylex: CSSProperties = {
       position:"absolute",
-      top:200,
-      left:100,
+      top:250,
+      left:80,
       width:"100%",
     }
 
@@ -26,9 +26,9 @@ export function AssetContainer(props:any) {
       width:"100%",
     }
 
+
      async function getPrice(symbol:String) {
-        const response = await axios.get("api/asset/" , {params:{symbol : symbol}});
-        console.log('data', response.data.message)
+        const response = await axios.get(window.location.origin +"/api/asset" , {params:{symbol : symbol}});
         setPrice(response.data.message.data.last);
         setTime(response.data.message.data.time);
         setVolume(response.data.message.data.vol);
@@ -39,7 +39,7 @@ export function AssetContainer(props:any) {
 
       useEffect(() => {
         async function getPriceFirst() {
-          const response = await axios.get("api/asset/" , {params:{symbol : props.value.toString()}});
+          const response = await axios.get(window.location.origin +"/api/asset", {params:{symbol : props.value.toString()}});
           console.log('data', response.data.message)
           setPrice(response.data.message.data.last);
           setTime(response.data.message.data.time);

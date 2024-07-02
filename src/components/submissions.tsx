@@ -43,7 +43,7 @@ export function Submissions(props:any) {
 
 
      async function getSubmissions(username: String) {
-        const response = await axios.get("api/getsubmissions/" , {params:{user : username}});
+        const response = await axios.get(window.location.origin + "/api/getsubmissions" , {params:{user : username}});
                  if(response.data.message.length === 0){
             setEmpty(true)
           }
@@ -55,7 +55,8 @@ export function Submissions(props:any) {
 
       useEffect(() => {
         async function getSubmissionsFirst() {
-          const response = await axios.get("api/getsubmissions/" , {params:{user : user.username}});
+            console.log(window.location.origin )
+          const response = await axios.get(window.location.origin  + "/api/getsubmissions" , {params:{user : user.username}});
           if(response.data.message.length === 0){
             setEmpty(true)
           }

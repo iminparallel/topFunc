@@ -10,7 +10,7 @@ export default function Search() {
     const { replace } = useRouter();
     const style_hover: CSSProperties = {
         position: "fixed",
-        bottom:230,
+        bottom:190,
         width:"100%",
     }
 

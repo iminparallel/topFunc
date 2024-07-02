@@ -36,6 +36,7 @@ const style2: CSSProperties = {
     position:"absolute",
     top:10,
     left:240,
+    color:"green"
   }; 
   const style_red: CSSProperties = {
     left:200,
@@ -48,7 +49,6 @@ interface Listing {
 }
 
   const query = searchParams?.query || '';
-  const currentPage = Number(searchParams?.page) || 1;
   const assetData = getAllAsset()
   const assets = await assetData
   const coins = assets['data']['ticker']
