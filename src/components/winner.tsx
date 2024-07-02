@@ -34,9 +34,16 @@ const stylea: CSSProperties = {
   async function getWinner(today: String) {
     try{    
     const response = await axios.get("api/todayschamp/" , {params:{date : today}});
-    const todaysWinner = response.data.message.winner.split("#")
-    setWinner(todaysWinner[0])
+    if (response.data.message.winner.toString()==="no winner"){
+      setWinner(response.data.message.winner.toString())
+    }
+    else{
+      const todaysWinner = response.data.message.winner.split("#")
+      setWinner(todaysWinner)
+
+    }
     const ans = response.data.message.answer.split("_")
+    console.log(ans)
     setFirst(ans[0])
     setSecond(ans[1])
     setThird(ans[2])
@@ -53,8 +60,15 @@ const stylea: CSSProperties = {
   useEffect(() => {
     async function getWinnerFirst() {
         try{const response = await axios.get("api/todayschamp/" , {params:{date : today}});
-        const todaysWinner = response.data.message.winner.split("#")
-        setWinner(todaysWinner[0])
+        console.log(response)
+        if (response.data.message.winner.toString()==="no winner"){
+          setWinner(response.data.message.winner.toString())
+        }
+        else{
+          const todaysWinner = response.data.message.winner.split("#")
+          setWinner(todaysWinner)
+
+        }
         const ans = response.data.message.answer.split("_")
         setFirst(ans[0])
         setSecond(ans[1])

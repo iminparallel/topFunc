@@ -13,15 +13,6 @@ type ResponseData = {
 
  
 export async function GET(request: Request) {
-function sortDictByValue(dict: Record<string, number>)
-    : Record<string, number> {
-        return Object.keys(dict)
-          .sort((a, b) => dict[b] - dict[a])
-          .reduce((acc, key) => {
-            acc[key] = dict[key];
-            return acc;
-          }, {} as Record<string, number>);
-      } 
 const dictionaryToArrayOfObjects = (dictionary: any) => {
         return Object.keys(dictionary).map(key => ({
             key: key,
@@ -53,37 +44,12 @@ if(code===process.env.NEXT_PUBLIC_SECRET_CODE!){
 
   const dateZeroTimeStamp = parseInt(Date.parse(dateZero).toString().slice(0,10));
   const dateMinusOneTimeStamp =  dateZeroTimeStamp - 24*60*60
-  interface AssetList {
-    [key: string]: number; // Define that assetList[key] will be a number for any key of type string
-  }
-  
-  let assetList= {};
+
  
 
   const response = await axios.get(`https://api.kucoin.com/api/v1/market/allTickers/`);
   const assetDictionary = response.data.data.ticker
-  /*console.log(assetDictionary)*/
-  /*interface AssetDictionary {
-    symbol: string;
-    symbolName:string;
-    buy:string;
-    bestBidSize: string;
-    sell: string;
-    bestAskSize: string;
-    changeRate: string;
-    changePrice: string;
-    high: string;
-    low: string;
-    vol: string;
-    volValue: string;
-    last: string;
-    averagePrice: string;
-    takerFeeRate: string;
-    makerFeeRate: string;
-    takerCoefficient: string;
-    makerCoefficient:string;
 
-  }*/
 
   assetDictionary.sort(function(a:Dictionary<T>,b:Dictionary<T>){return b.volValue - a.volValue});
 

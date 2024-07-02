@@ -46,7 +46,6 @@ export function Submissions(props:any) {
 
      async function getSubmissions(username: String) {
         const response = await axios.get("api/getsubmissions/" , {params:{user : username}});
-        console.log( response.data.message)
                  if(response.data.message.length === 0){
             setEmpty(true)
           }
