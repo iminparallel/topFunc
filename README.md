@@ -1,36 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A betting game that lets users predict the top 3 cryptocurrency pairs based on daily price percentage change.  
+Users can keep track of their entries, and time entered on a separate tab.
+Winner is declared everyday through a cron job at 00:00 GMT.
+Winner and the winninglist od the day is displayed on the home page.
 
-## Getting Started
+Visit t.me/topFunc_bot for live demo.
 
-First, run the development server:
+<p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+.env format
+NEXT_PUBLIC_MONGODB_URI= </br>
+NEXT_PUBLIC_WINNERS_API="http://localhost:3000/api/newwinner" </br>
+NEXT_PUBLIC_SECRET_CODE=</br>
+NEXT_PUBLIC_RAINBOW_PROJECT_ID=</br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+</p>
