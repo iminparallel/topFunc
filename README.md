@@ -9,7 +9,6 @@ Visit t.me/topFunc_bot for live demo.
 
 .env format
 NEXT_PUBLIC_MONGODB_URI= </br>
-NEXT_PUBLIC_WINNERS_API="http://localhost:3000/api/newwinner" </br>
 NEXT_PUBLIC_SECRET_CODE=</br>
 NEXT_PUBLIC_RAINBOW_PROJECT_ID=</br>
 
