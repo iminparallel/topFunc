@@ -59,9 +59,13 @@ export async function GET(request: Request) {
 
       const splicedList = dictionaryToArrayOfObjects(assetDictionary).slice(
         0,
+        3
+      );
+      /*
+            const splicedList = dictionaryToArrayOfObjects(assetDictionary).slice(
+        0,
         50
       );
-
       interface PriceChange {
         [key: string]: number; // Define that assetList[key] will be a number for any key of type string
       }
@@ -82,7 +86,14 @@ export async function GET(request: Request) {
 
       const winnerList =
         priceChange[0].id + "_" + priceChange[1].id + "_" + priceChange[2].id;
-      console.log(winnerList);
+      console.log(winnerList); */
+
+      const winnerList =
+        splicedList[0].value.symbol +
+        "_" +
+        splicedList[1].value.symbol +
+        "_" +
+        splicedList[2].value.symbol;
 
       const subs = await Answers.find({
         time: { $gte: dateMinusOneTimeStamp, $lt: dateZeroTimeStamp },
