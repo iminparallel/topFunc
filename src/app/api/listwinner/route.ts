@@ -106,7 +106,8 @@ export async function GET(request: Request) {
 
       try {
         try {
-          const first = subs[0].userName + "#" + subs[0]._id;
+          const first =
+            subs[0].userName + "#" + subs[0]._id + "#" + subs[0].time;
           const res = await fetch(
             /*host*/ "http://" + host + "/api/newwinner",
             {
