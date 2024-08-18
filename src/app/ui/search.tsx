@@ -1,31 +1,31 @@
-'use client';
-import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+"use client";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { CSSProperties } from "react";
 
 //import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
- 
-export default function Search() {
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
-    const { replace } = useRouter();
-    const style_hover: CSSProperties = {
-        position: "fixed",
-        bottom:190,
-        width:"100%",
-    }
 
-    function handleSearch(term: string) {
-        const params = new URLSearchParams(searchParams);
-        if (term) {
-            params.set('query', term);
-          } else {
-            params.delete('query');
-          }
-        replace(`${pathname}?${params.toString()}`);
+export default function Search() {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+  const style_hover: CSSProperties = {
+    position: "fixed",
+    bottom: 220,
+    width: "100%",
+  };
+
+  function handleSearch(term: string) {
+    const params = new URLSearchParams(searchParams);
+    if (term) {
+      params.set("query", term);
+    } else {
+      params.delete("query");
     }
- 
+    replace(`${pathname}?${params.toString()}`);
+  }
+
   return (
-    <div style = {style_hover} className="relative flex flex-1 flex-shrink-0">
+    <div style={style_hover} className="relative flex flex-1 flex-shrink-0">
       <label htmlFor="search" className="sr-only">
         Search
       </label>
@@ -35,7 +35,7 @@ export default function Search() {
         onChange={(e) => {
           handleSearch(e.target.value);
         }}
-        defaultValue={searchParams.get('query')?.toString()}  
+        defaultValue={searchParams.get("query")?.toString()}
       />
     </div>
   );
