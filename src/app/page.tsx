@@ -23,6 +23,13 @@ export default async function Home({
     width: "100%",
   };
 
+  const style2: CSSProperties = {
+    position: "fixed",
+    top: 0,
+    left: 220,
+    width: "100%",
+  };
+
   const style3: CSSProperties = {
     position: "absolute",
     top: 0,
@@ -36,6 +43,7 @@ export default async function Home({
 
   interface Listing {
     symbol: string;
+    changeRate: string;
   }
 
   const query = searchParams?.query || "";
@@ -43,6 +51,10 @@ export default async function Home({
   const assets = await assetData;
   const coins = assets["data"]["ticker"];
   let listings = [];
+
+  coins.sort(function (a: any, b: any) {
+    return b.changeRate - a.changeRate;
+  });
 
   for (let i = 0; i < coins.length; i++) {
     if (coins[i].symbol.toLowerCase().includes(query.toLowerCase())) {
@@ -60,11 +72,14 @@ export default async function Home({
       >
         <div>
           <br />
+          <p style={style2}>Currency | Change Rate</p>
           <ul style={style3}>
             {listings.map((listing: Listing) => {
               return (
                 <li key={listing.symbol}>
-                  <p>{listing.symbol}</p>
+                  <p>
+                    {listing.symbol} | {listing.changeRate}
+                  </p>
                 </li>
               );
             })}
