@@ -115,7 +115,7 @@ export function Winner(props: any) {
       {loading ? (
         <p style={style_hover2} className="font-mono font-bold px-6 py-2">
           {" "}
-          loading winner...
+          loading...
         </p>
       ) : (
         <div style={style_hover2} className="font-mono font-bold px-6 py-2">
