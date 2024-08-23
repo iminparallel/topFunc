@@ -26,14 +26,14 @@ export default async function Home({
   const style2: CSSProperties = {
     position: "fixed",
     top: 0,
-    left: 220,
+    left: 195,
     width: "100%",
   };
 
   const style3: CSSProperties = {
     position: "absolute",
     top: 0,
-    left: 220,
+    left: 195,
     width: "100%",
   };
 
@@ -65,14 +65,15 @@ export default async function Home({
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Winner />
-
+      <p className="font-mono font-bold" style={style2}>
+        Currency | Change Rate
+      </p>
       <section
         style={style_red}
         className="font-mono font-bold flex min-h-screen flex-col items-center justify-between"
       >
         <div>
           <br />
-          <p style={style2}>Currency | Change Rate</p>
           <ul style={style3}>
             {listings.map((listing: Listing) => {
               return (
