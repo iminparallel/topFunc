@@ -76,7 +76,7 @@ export default async function Home({
               return (
                 <li key={listing.symbol}>
                   <p>
-                    {listing.symbol} {listing.changeRate}
+                    {listing.symbol} {listing.changeRate.substring(0, 4)}
                   </p>
                 </li>
               );
