@@ -21,7 +21,8 @@ export function Rules(props: any) {
         onCancel={() => setIsModalVisible(false)}
         width={600}
       >
-        Predict the top 3 at 00:00 GMT, winner is decided every day.
+        Predict the top 3 at 00:00 GMT, winner is decided every day. Fastest
+        guess wins.
       </Modal>
     </>
   );
