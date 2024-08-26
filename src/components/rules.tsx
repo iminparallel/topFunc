@@ -21,27 +21,7 @@ export function Rules(props: any) {
         onCancel={() => setIsModalVisible(false)}
         width={600}
       >
-        enter top 3 based on following rules:
-        <ol>
-          <li>
-            Sort these listed paairs based on the following index in a
-            descending order
-          </li>
-          <br />
-          <li>
-            index = price at the end of day / price at the beginning of the day
-            (GMT)
-          </li>
-          <li>
-            you can get the necessary historic here :{" "}
-            <Link href="https://www.kucoin.com/docs/rest/spot-trading/market-data/get-klines">
-              {" "}
-              Candles
-            </Link>
-          </li>
-          <br />
-          <li>return the top 3 accordingly</li>
-        </ol>
+        Predict the top 3 at 00:00 GMT, winner is decided every day.
       </Modal>
     </>
   );
