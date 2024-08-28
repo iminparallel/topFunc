@@ -80,7 +80,7 @@ export default async function Home({
               return (
                 <li key={listing.symbol}>
                   <p>
-                    {listing.symbol} {listing.changeRate.substring(0, 4)}
+                    {listing.symbol} {listing.changeRate.substring(0, 5)}
                   </p>
                 </li>
               );
