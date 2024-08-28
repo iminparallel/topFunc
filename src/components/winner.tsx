@@ -68,7 +68,6 @@ export function Winner(props: any) {
         const response = await axios.get("api/todayschamp/", {
           params: { date: today },
         });
-        console.log(response);
         if (response.data.message.winner.toString() === "no winner") {
           setWinner(response.data.message.winner.toString());
           setTime("NA");

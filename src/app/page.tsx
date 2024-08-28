@@ -1,12 +1,16 @@
 import Image from "next/image";
 import { Winner } from "../components/winner";
 import { Submissions } from "../components/submissions";
+/*import { List } from "../components/list";*/
+
 import { CSSProperties } from "react";
 
 import type { Metadata } from "next";
 import getAllAsset from "../lib/getAllAsset";
 import Search from "@/app/ui/search";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 
 export default async function Home({
   searchParams,

@@ -19,14 +19,17 @@ export default function RootLayout({
 }>) {
   return (
     <>
-    <html lang="en">
-      <body className={inter.className}>
-      <TmaProvider>   
-      <WalletProvider> <Navbar/>
-          {children} </WalletProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <TmaProvider>
+            <WalletProvider>
+              {" "}
+              <Navbar />
+              {children}{" "}
+            </WalletProvider>
           </TmaProvider>
-      </body>
-    </html>
+        </body>
+      </html>
     </>
   );
 }
