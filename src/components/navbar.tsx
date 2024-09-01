@@ -23,6 +23,10 @@ export function Navbar(props: NavbarProps) {
     width: "10%",
   };
 
+  const svgStyle: CSSProperties = {
+    filter: "brightness(0) saturate(100%) invert(100%)",
+  };
+
   return (
     <nav
       style={style_hover}
@@ -35,6 +39,7 @@ export function Navbar(props: NavbarProps) {
           width={50}
           height={50}
           alt="chained"
+          style={svgStyle}
         />
         TopFunc()
       </div>
