@@ -11,7 +11,7 @@ export default function Search() {
   const style_hover: CSSProperties = {
     backgroundColor: "gray",
     position: "fixed",
-    bottom: 250,
+    bottom: 260,
     width: "100%",
   };
 
