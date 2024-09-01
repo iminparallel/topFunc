@@ -9,6 +9,7 @@ export default function Search() {
   const pathname = usePathname();
   const { replace } = useRouter();
   const style_hover: CSSProperties = {
+    backgroundColor: "gray",
     position: "fixed",
     bottom: 220,
     width: "100%",
