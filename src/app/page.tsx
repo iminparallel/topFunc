@@ -38,7 +38,7 @@ export default async function Home({
     top: 0,
     left: 190,
     width: "auto",
-    height: "400px",
+    height: "800px",
     overflowY: "auto",
   };
 
