@@ -35,10 +35,9 @@ export default async function Home({
   };
 
   const style3: CSSProperties = {
-    position: "absolute",
     top: 0,
     left: 190,
-    width: "100%",
+    width: "auto",
   };
 
   const style_red: CSSProperties = {
@@ -75,7 +74,7 @@ export default async function Home({
       >
         <div>
           <br />
-          <ul style={style3} className="fixed right-1/3">
+          <ul style={style3} className="fixed right-1/3 h-64 overflow-y-auto">
             {listings.map((listing: Listing) => {
               return (
                 <li key={listing.symbol}>
