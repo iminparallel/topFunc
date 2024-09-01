@@ -30,7 +30,7 @@ export function Navbar(props: NavbarProps) {
     >
       <div style={style_red} className="font-mono font-bold">
         <Image
-          className="p-1"
+          className="p-1 text-white"
           src="sisyphus.svg"
           width={50}
           height={50}

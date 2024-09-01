@@ -31,7 +31,7 @@ export default function Search() {
         Search
       </label>
       <input
-        className="peer block w-full rounded-md border border-white bg-gray py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+        className="text-black  peer block w-full rounded-md border border-white bg-gray-300 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
         placeholder="search currency"
         onChange={(e) => {
           handleSearch(e.target.value);
