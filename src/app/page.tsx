@@ -75,7 +75,7 @@ export default async function Home({
       >
         <div>
           <br />
-          <ul style={style3}>
+          <ul style={style3} className="overflow-x-auto overflow-y-hidden">
             {listings.map((listing: Listing) => {
               return (
                 <li key={listing.symbol}>
