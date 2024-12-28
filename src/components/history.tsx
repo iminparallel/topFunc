@@ -81,11 +81,11 @@ export function History(props: any) {
                 return (
                   <li key={hist._id}>
                     <div className="border-t font-mono flex flex-col">
+                      <div style={gap}> {hist.date} </div>
                       <div style={gap}> {hist.winner.toString()} </div>
                       <div style={gap}> {hist.answer.split("_")[0]} </div>
                       <div style={gap}> {hist.answer.split("_")[1]} </div>
                       <div style={gap}> {hist.answer.split("_")[2]} </div>
-                      <div style={gap}> {hist.date} </div>
                     </div>
                   </li>
                 );
