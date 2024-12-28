@@ -1,21 +1,20 @@
-
 import connectDB from "../../../lib/mongodb";
 
-import {Winners} from "../../models/winners";
+import { Winners } from "../../models/winners";
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 
-export async function POST(req:Request) {
+export async function POST(req: Request) {
   const { first, winnerList, justDate } = await req.json();
-  console.log(first, winnerList, justDate)
-  const winner = first
-  const answer = winnerList
-  const date = justDate
+  console.log(first, winnerList, justDate);
+  const winner = first;
+  const answer = winnerList;
+  const date = justDate;
   try {
     await connectDB();
-    await Winners.create({ winner, answer, date});
+    await Winners.create({ winner, answer, date });
     return NextResponse.json({
-      msg: ["Message sent successfully"],
+      msg: ["Response Recorded sent successfully"],
       success: true,
     });
   } catch (error) {
