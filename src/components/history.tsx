@@ -8,8 +8,7 @@ import { CSSProperties } from "react";
 export function History(props: any) {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [empty, setEmpty] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(true);
 
   const { user } = useTma();
   const stylex: CSSProperties = {
@@ -34,46 +33,28 @@ export function History(props: any) {
     date: string;
   }
 
-  async function getHistory(username: String) {
-    const response = await axios.get(window.location.origin + "/api/history", {
-      params: { user: username },
-    });
-    if (response.data.message.length === 0) {
-      setEmpty(true);
-    } else {
-      setEmpty(false);
-    }
+  async function getHistory() {
+    const response = await axios.get(window.location.origin + "/api/history");
     setHistory(response.data.message);
   }
 
   useEffect(() => {
     async function getHistoryFirst() {
       console.log(window.location.origin);
-      const response = await axios.get(
-        window.location.origin + "/api/history",
-        { params: { user: user.username } }
-      );
-      if (response.data.message.length === 0) {
-        setEmpty(true);
-      } else {
-        setEmpty(false);
-      }
-      if (user.username) {
-        setHistory(response.data.message);
-      }
+      const response = await axios.get(window.location.origin + "/api/history");
+      setHistory(response.data.message);
+
       setLoading(false);
     }
     getHistoryFirst();
-  }, [user]);
+  }, [history]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (user.username) {
-        getHistory(user.username);
-      }
+      getHistory();
     }, 30 * 1000);
     return () => clearInterval(interval);
-  }, [user, history]);
+  }, [history]);
   return (
     <>
       <button
@@ -81,7 +62,7 @@ export function History(props: any) {
         className="font-mono font-bold "
         onClick={() => setIsModalVisible(true)}
       >
-        your entries
+        History
       </button>
 
       <Modal
@@ -92,8 +73,8 @@ export function History(props: any) {
         width={600}
       >
         <div className="font-mono font-bold ">
-          {empty ? (
-            <p> no entries so far ... takes 30s to load</p>
+          {loading ? (
+            <p> loading . . .</p>
           ) : (
             <div>
               {history.map((hist: Hist) => {

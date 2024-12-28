@@ -56,6 +56,8 @@ export function Navbar(props: NavbarProps) {
       <div>
         <Play />
       </div>
+      <br />
+      <br />
       <div>
         <History />
       </div>

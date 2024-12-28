@@ -5,5 +5,5 @@ import { NextResponse } from "next/server";
 export async function GET(request: Request) {
   await connectDB();
   const top = await Winners.find();
-  return NextResponse.json({ message: top });
+  return NextResponse.json({ message: top.reverse() });
 }
