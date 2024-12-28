@@ -6,7 +6,7 @@ import { CSSProperties } from "react";
 import { Play } from "@/components/play";
 import { Submissions } from "@/components/submissions";
 import Image from "next/image";
-import { History } from "../components/history";
+import { History } from "@/components/history";
 
 type NavbarProps = {};
 
