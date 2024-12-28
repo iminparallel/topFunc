@@ -8,7 +8,7 @@ import { CSSProperties } from "react";
 export function History(props: any) {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isModalVisible, setIsModalVisible] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const { user } = useTma();
   const stylex: CSSProperties = {
