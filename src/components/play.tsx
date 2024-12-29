@@ -94,7 +94,7 @@ export function Play(props: any) {
           className="py-4 mt-4 border-t flex flex-col gap-5 font-mono font-bold"
         >
           <div className="px-2">
-            <label htmlFor="first">1</label>
+            <label htmlFor="first"> 1 </label>
             <input
               onChange={(e) => setFirst(e.target.value)}
               value={first}
@@ -105,7 +105,7 @@ export function Play(props: any) {
             />
           </div>
           <div className="px-2">
-            <label htmlFor="second">2</label>
+            <label htmlFor="second">2 </label>
             <input
               onChange={(e) => setSecond(e.target.value)}
               value={second}
@@ -116,7 +116,7 @@ export function Play(props: any) {
             />
           </div>
           <div className="px-2">
-            <label htmlFor="third">3</label>
+            <label htmlFor="third">3 </label>
             <input
               onChange={(e) => setThird(e.target.value)}
               value={third}
