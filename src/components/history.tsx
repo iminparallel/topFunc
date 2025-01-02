@@ -47,14 +47,14 @@ export function History(props: any) {
       setLoading(false);
     }
     getHistoryFirst();
-  }, [history]);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       getHistory();
     }, 30 * 1000);
     return () => clearInterval(interval);
-  }, [history]);
+  }, []);
   return (
     <>
       <button
