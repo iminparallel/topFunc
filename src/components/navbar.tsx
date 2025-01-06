@@ -58,9 +58,7 @@ export function Navbar(props: NavbarProps) {
       </div>
       <br />
       <br />
-      <div>
-        <History />
-      </div>
+      <div>{/*   <History />*/}</div>
     </nav>
   );
 }
